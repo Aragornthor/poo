@@ -5,7 +5,10 @@
       <configuration>
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
-        <datasource-mapping />
+        <datasource-mapping>
+          <factory-entry name="noname-a.xml@0" value="de74472d-1fa4-41c0-b885-2769c8ada84c" />
+          <factory-entry name="poo" />
+        </datasource-mapping>
         <naming-strategy-map />
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/resources/META-INF/persistence.xml" />
       </configuration>
@@ -20,6 +23,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />

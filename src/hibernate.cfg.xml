@@ -1,0 +1,16 @@
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">
+            jdbc:mysql://address=(protocol=tcp)(host=localhost)(port=3306)/IG2I_POO
+        </property>
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.username"><!-- à renseigner ! --></property>
+        <property name="connection.password"><!-- à renseigner ! --></property>
+        <mapping class="entities.E_TCategorie"/>
+        <mapping class="entities.E_TCompetence"/>
+        <mapping class="entities.E_TMembre"/>
+        <mapping class="entities.E_TTalent"/>
+        <!-- DB schema will be updated if needed -->
+        <!--<property name="hibernate.hbm2ddl.auto">update</property>-->
+    </session-factory>
+</hibernate-configuration>
