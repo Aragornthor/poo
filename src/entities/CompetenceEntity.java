@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity(name = "CompetenceEntity")
 @Table(name = "T_COMPETENCE", schema = "IG2I_POO", catalog = "")
-public class E_TCompetence {
+public class CompetenceEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "ID_COMPETENCE")
@@ -45,7 +45,7 @@ public class E_TCompetence {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        E_TCompetence that = (E_TCompetence) o;
+        CompetenceEntity that = (CompetenceEntity) o;
 
         if (idCompetence != that.idCompetence) return false;
         if (idCategorie != that.idCategorie) return false;

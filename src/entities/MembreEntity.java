@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity(name = "MembreEntity")
 @Table(name = "T_MEMBRE", schema = "IG2I_POO", catalog = "")
-public class E_TMembre {
+public class MembreEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "ID_MEMBRE")
@@ -133,20 +133,20 @@ public class E_TMembre {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        E_TMembre e_tMembre = (E_TMembre) o;
+        MembreEntity membreEntity = (MembreEntity) o;
 
-        if (idMembre != e_tMembre.idMembre) return false;
-        if (soldeHeure != e_tMembre.soldeHeure) return false;
-        if (soldeEcu != e_tMembre.soldeEcu) return false;
-        if (clientCompteEcu != e_tMembre.clientCompteEcu) return false;
-        if (nomMembre != null ? !nomMembre.equals(e_tMembre.nomMembre) : e_tMembre.nomMembre != null) return false;
-        if (prenomMembre != null ? !prenomMembre.equals(e_tMembre.prenomMembre) : e_tMembre.prenomMembre != null)
+        if (idMembre != membreEntity.idMembre) return false;
+        if (soldeHeure != membreEntity.soldeHeure) return false;
+        if (soldeEcu != membreEntity.soldeEcu) return false;
+        if (clientCompteEcu != membreEntity.clientCompteEcu) return false;
+        if (nomMembre != null ? !nomMembre.equals(membreEntity.nomMembre) : membreEntity.nomMembre != null) return false;
+        if (prenomMembre != null ? !prenomMembre.equals(membreEntity.prenomMembre) : membreEntity.prenomMembre != null)
             return false;
-        if (mailMembre != null ? !mailMembre.equals(e_tMembre.mailMembre) : e_tMembre.mailMembre != null) return false;
-        if (statut != null ? !statut.equals(e_tMembre.statut) : e_tMembre.statut != null) return false;
-        if (typeMembre != null ? !typeMembre.equals(e_tMembre.typeMembre) : e_tMembre.typeMembre != null) return false;
-        if (habitant != null ? !habitant.equals(e_tMembre.habitant) : e_tMembre.habitant != null) return false;
-        if (raisonSociale != null ? !raisonSociale.equals(e_tMembre.raisonSociale) : e_tMembre.raisonSociale != null)
+        if (mailMembre != null ? !mailMembre.equals(membreEntity.mailMembre) : membreEntity.mailMembre != null) return false;
+        if (statut != null ? !statut.equals(membreEntity.statut) : membreEntity.statut != null) return false;
+        if (typeMembre != null ? !typeMembre.equals(membreEntity.typeMembre) : membreEntity.typeMembre != null) return false;
+        if (habitant != null ? !habitant.equals(membreEntity.habitant) : membreEntity.habitant != null) return false;
+        if (raisonSociale != null ? !raisonSociale.equals(membreEntity.raisonSociale) : membreEntity.raisonSociale != null)
             return false;
 
         return true;
