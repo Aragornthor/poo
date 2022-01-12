@@ -2,7 +2,7 @@ package entities;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name = "CategorieEntity")
 @Table(name = "T_CATEGORIE", schema = "IG2I_POO", catalog = "")
 public class E_TCategorie {
     @GeneratedValue(strategy = GenerationType.IDENTITY)

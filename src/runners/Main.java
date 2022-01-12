@@ -33,7 +33,7 @@ public class Main {
     public static void main(final String[] args) throws Exception {
         final Session session = getSession();
         try {
-            System.out.println("querying all the managed entities...");
+            System.out.println("Querying all the managed entities...");
             final Metamodel metamodel = session.getSessionFactory().getMetamodel();
             for (EntityType<?> entityType : metamodel.getEntities()) {
                 final String entityName = entityType.getName();
