@@ -18,14 +18,17 @@ public class TalentServiceImpl implements CRUD<TalentEntity> {
     private TalentServiceImpl() {}
 
     @Override
-    public void create(TalentEntity entity) {
+    public Integer create(TalentEntity entity) {
         Transaction transaction = EntityManager.getSession().beginTransaction();
+        Integer id = null;
         try {
-            EntityManager.getSession().save(entity);
+            id = (Integer) EntityManager.getSession().save(entity);
             transaction.commit();
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        return id;
     }
 
     @Override

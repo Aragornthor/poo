@@ -18,14 +18,17 @@ public class MembreServiceImpl implements CRUD<MembreEntity> {
     private MembreServiceImpl() {}
 
     @Override
-    public void create(MembreEntity entity) {
+    public Integer create(MembreEntity entity) {
         Transaction transaction = EntityManager.getSession().beginTransaction();
+        Integer id = null;
         try {
-            EntityManager.getSession().save(entity);
+            id = (Integer) EntityManager.getSession().save(entity);
             transaction.commit();
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        return id;
     }
 
     @Override

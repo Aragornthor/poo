@@ -18,14 +18,17 @@ public class CompetenceServiceImpl implements CRUD<CompetenceEntity> {
     private CompetenceServiceImpl() {}
 
     @Override
-    public void create(CompetenceEntity entity) {
+    public Integer create(CompetenceEntity entity) {
         Transaction transaction = EntityManager.getSession().beginTransaction();
+        Integer id = null;
         try {
-            EntityManager.getSession().save(entity);
+            id = (Integer) EntityManager.getSession().save(entity);
             transaction.commit();
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        return id;
     }
 
     @Override

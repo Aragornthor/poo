@@ -2,6 +2,7 @@ package runners;
 
 import entities.CompetenceEntity;
 import org.junit.jupiter.api.Test;
+import services.CategorieServiceImpl;
 import services.CompetenceServiceImpl;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -11,6 +12,7 @@ public class TestCompetenceService {
     @Test
     public void testCreateDelete() {
         CompetenceEntity competenceEntity = new CompetenceEntity();
+        competenceEntity.setCategorieEntity(CategorieServiceImpl.getInstance().readFromId(13));
         competenceEntity.setCompetence("Modélisme");
 
         CompetenceServiceImpl.getInstance().create(competenceEntity);

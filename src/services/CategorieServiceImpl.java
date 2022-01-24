@@ -22,14 +22,17 @@ public class CategorieServiceImpl implements CRUD<CategorieEntity> {
 
 
     @Override
-    public void create(CategorieEntity entity) {
+    public Integer create(CategorieEntity entity) {
         Transaction transaction = EntityManager.getSession().beginTransaction();
+        Integer id = null;
         try {
-            EntityManager.getSession().save(entity);
+            id = (Integer) EntityManager.getSession().save(entity);
             transaction.commit();
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        return id;
     }
 
     @Override

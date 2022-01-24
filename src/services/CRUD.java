@@ -6,7 +6,7 @@ public interface CRUD<T> {
      * Permet l'ajout en base de l'entité de type T.
      * @param entity
      */
-    void create(T entity);
+    Integer create(T entity);
 
     /**
      * Permet la lecture en base de l'entité ayant l'id searchId.
