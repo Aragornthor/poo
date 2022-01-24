@@ -12,9 +12,10 @@ public class CompetenceEntity {
     @Basic
     @Column(name = "COMPETENCE")
     private String competence;
-    @Basic
-    @Column(name = "ID_CATEGORIE")
-    private int idCategorie;
+
+    @ManyToOne
+    @JoinColumn(name = "ID_CATEGORIE")
+    private CategorieEntity categorieEntity;
 
     public int getIdCompetence() {
         return idCompetence;
@@ -32,12 +33,12 @@ public class CompetenceEntity {
         this.competence = competence;
     }
 
-    public int getIdCategorie() {
-        return idCategorie;
+    public CategorieEntity getCategorieEntity() {
+        return categorieEntity;
     }
 
-    public void setIdCategorie(int idCategorie) {
-        this.idCategorie = idCategorie;
+    public void setCategorieEntity(CategorieEntity categorieEntity) {
+        this.categorieEntity = categorieEntity;
     }
 
     @Override
@@ -48,7 +49,6 @@ public class CompetenceEntity {
         CompetenceEntity that = (CompetenceEntity) o;
 
         if (idCompetence != that.idCompetence) return false;
-        if (idCategorie != that.idCategorie) return false;
         if (competence != null ? !competence.equals(that.competence) : that.competence != null) return false;
 
         return true;
@@ -58,7 +58,11 @@ public class CompetenceEntity {
     public int hashCode() {
         int result = idCompetence;
         result = 31 * result + (competence != null ? competence.hashCode() : 0);
-        result = 31 * result + idCategorie;
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "CompetenceEntity:\n\tNom de catégorie : " + categorieEntity.getCategorie() + "\n\tNom de compétence : " + competence;
     }
 }

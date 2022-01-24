@@ -12,7 +12,6 @@ public class TestCompetenceService {
     public void testCreateDelete() {
         CompetenceEntity competenceEntity = new CompetenceEntity();
         competenceEntity.setCompetence("Modélisme");
-        competenceEntity.setIdCategorie(13);
 
         CompetenceServiceImpl.getInstance().create(competenceEntity);
 
