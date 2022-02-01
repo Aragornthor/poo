@@ -1,6 +1,7 @@
 package entities;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 @Entity(name = "CascadeRefEntity")
@@ -10,10 +11,11 @@ public class CascadeRefEntity {
     @Basic
     @Column(name = "ID_REF")
     private Integer idRef;
-    @Id
     @Basic
     @Column(name = "LIB_REF")
     private String libRef;
+    @OneToMany(mappedBy = "refEntity", cascade = CascadeType.REMOVE)
+    private List<CascadeFkEntity> fkEntity;
 
     public Integer getIdRef() {
         return idRef;
@@ -29,6 +31,14 @@ public class CascadeRefEntity {
 
     public void setLibRef(String libRef) {
         this.libRef = libRef;
+    }
+
+    public List<CascadeFkEntity> getFkEntity() {
+        return fkEntity;
+    }
+
+    public void setFkEntity(List<CascadeFkEntity> fkEntity) {
+        this.fkEntity = fkEntity;
     }
 
     @Override

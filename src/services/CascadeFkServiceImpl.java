@@ -4,18 +4,18 @@ import entities.CascadeFkEntity;
 import org.hibernate.Transaction;
 import org.hibernate.TransactionException;
 
-public class CascadeFkEntityServiceImpl implements CRUD<CascadeFkEntity> {
+public class CascadeFkServiceImpl implements CRUD<CascadeFkEntity> {
 
-    public static CascadeFkEntityServiceImpl instance;
+    public static CascadeFkServiceImpl instance;
 
-    public static CascadeFkEntityServiceImpl getInstance() {
+    public static CascadeFkServiceImpl getInstance() {
         if(instance == null) {
-            instance = new CascadeFkEntityServiceImpl();
+            instance = new CascadeFkServiceImpl();
         }
         return instance;
     }
 
-    private CascadeFkEntityServiceImpl() {}
+    private CascadeFkServiceImpl() {}
 
     @Override
     public Integer create(CascadeFkEntity entity) {
@@ -33,6 +33,7 @@ public class CascadeFkEntityServiceImpl implements CRUD<CascadeFkEntity> {
 
     @Override
     public CascadeFkEntity readFromId(Integer searchId) {
+        EntityManager.getSession().find(CascadeFkEntity.class, searchId);
         return EntityManager.getSession().get(CascadeFkEntity.class, searchId);
     }
 

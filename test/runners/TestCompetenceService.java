@@ -23,7 +23,7 @@ public class TestCompetenceService {
     @Test
     public void testRead() {
         CompetenceServiceImpl competenceService = CompetenceServiceImpl.getInstance();
-        CompetenceEntity competenceEntity = competenceService.readFromId(20); // Normalement la catégorie n°13 est "BRICOLAGE"
+        CompetenceEntity competenceEntity = competenceService.readFromId(20); // Normalement la compétence n° 20 = "telekinesie"
 
         assertEquals("telekinesie", competenceEntity.getCompetence());
         assertNotEquals("Cuisine", competenceEntity.getCompetence());

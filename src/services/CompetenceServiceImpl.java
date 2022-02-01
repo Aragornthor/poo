@@ -1,10 +1,9 @@
 package services;
 
 import entities.CompetenceEntity;
-import org.hibernate.Transaction;
-import org.hibernate.TransactionException;
+import entities.EntitiesEnum;
 
-public class CompetenceServiceImpl implements CRUD<CompetenceEntity> {
+public class CompetenceServiceImpl extends GenericServiceImpl<CompetenceEntity> {
 
     public static CompetenceServiceImpl instance;
 
@@ -15,46 +14,8 @@ public class CompetenceServiceImpl implements CRUD<CompetenceEntity> {
         return instance;
     }
 
-    private CompetenceServiceImpl() {}
-
-    @Override
-    public Integer create(CompetenceEntity entity) {
-        Transaction transaction = EntityManager.getSession().beginTransaction();
-        Integer id = null;
-        try {
-            id = (Integer) EntityManager.getSession().save(entity);
-            transaction.commit();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return id;
+    private CompetenceServiceImpl() {
+        super(EntitiesEnum.COMPETENCE);
     }
 
-    @Override
-    public CompetenceEntity readFromId(Integer searchId) {
-        return EntityManager.getSession().get(CompetenceEntity.class, searchId);
-    }
-
-    @Override
-    public void update(CompetenceEntity entity) {
-        Transaction transaction = EntityManager.getSession().beginTransaction();
-        try {
-            EntityManager.getSession().saveOrUpdate(entity);
-            transaction.commit();
-        } catch (TransactionException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Override
-    public void delete(CompetenceEntity entity) {
-        Transaction transaction = EntityManager.getSession().beginTransaction();
-        try {
-            EntityManager.getSession().remove(entity);
-            transaction.commit();
-        } catch (TransactionException e) {
-            e.printStackTrace();
-        }
-    }
 }

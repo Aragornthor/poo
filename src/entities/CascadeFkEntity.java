@@ -10,9 +10,9 @@ public class CascadeFkEntity {
     @Basic
     @Column(name = "ID_FK")
     private Integer idFk;
-    @Basic
-    @Column(name = "ID_REF")
-    private Integer idRef;
+    @ManyToOne
+    @JoinColumn(name = "ID_REF")
+    private CascadeRefEntity refEntity;
     @Basic
     @Column(name = "LIB_FK")
     private String libFk;
@@ -25,12 +25,12 @@ public class CascadeFkEntity {
         this.idFk = idFk;
     }
 
-    public Integer getIdRef() {
-        return idRef;
+    public CascadeRefEntity getRefEntity() {
+        return refEntity;
     }
 
-    public void setIdRef(Integer idRef) {
-        this.idRef = idRef;
+    public void setRefEntity(CascadeRefEntity idRef) {
+        this.refEntity = idRef;
     }
 
     public String getLibFk() {
@@ -46,11 +46,11 @@ public class CascadeFkEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CascadeFkEntity that = (CascadeFkEntity) o;
-        return Objects.equals(idFk, that.idFk) && Objects.equals(idRef, that.idRef) && Objects.equals(libFk, that.libFk);
+        return Objects.equals(idFk, that.idFk) && Objects.equals(refEntity, that.refEntity) && Objects.equals(libFk, that.libFk);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idFk, idRef, libFk);
+        return Objects.hash(idFk, refEntity, libFk);
     }
 }
