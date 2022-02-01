@@ -13,6 +13,9 @@
         <mapping class="entities.CompetenceEntity"/>
         <mapping class="entities.CotisationsEntity"/>
         <mapping class="entities.MembreEntity"/>
+        <mapping class="entities.ProfessionnelEntity"/>
+        <mapping class="entities.HabitantEntity"/>
+        <mapping class="entities.VacancierEntity"/>
         <mapping class="entities.PropositionEntity"/>
         <mapping class="entities.TalentEntity"/>
         <mapping class="entities.TarifEntity"/>

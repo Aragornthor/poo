@@ -3,8 +3,10 @@ package entities;
 import javax.persistence.*;
 
 @Entity(name = "MembreEntity")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="TYPE_MEMBRE", discriminatorType = DiscriminatorType.STRING)
 @Table(name = "T_MEMBRE", schema = "IG2I_POO", catalog = "")
-public class MembreEntity {
+public abstract class MembreEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "ID_MEMBRE")
@@ -27,9 +29,9 @@ public class MembreEntity {
     @Basic
     @Column(name = "SOLDE_ECU")
     private int soldeEcu;
-    @Basic
+    /*@Basic
     @Column(name = "TYPE_MEMBRE")
-    private String typeMembre;
+    private String typeMembre;*/
     @Basic
     @Column(name = "HABITANT")
     private Integer habitant;
@@ -96,13 +98,13 @@ public class MembreEntity {
         this.soldeEcu = soldeEcu;
     }
 
-    public String getTypeMembre() {
+    /*public String getTypeMembre() {
         return typeMembre;
     }
 
     public void setTypeMembre(String typeMembre) {
         this.typeMembre = typeMembre;
-    }
+    }*/
 
     public Integer getHabitant() {
         return habitant;
@@ -144,7 +146,7 @@ public class MembreEntity {
             return false;
         if (mailMembre != null ? !mailMembre.equals(membreEntity.mailMembre) : membreEntity.mailMembre != null) return false;
         if (statut != null ? !statut.equals(membreEntity.statut) : membreEntity.statut != null) return false;
-        if (typeMembre != null ? !typeMembre.equals(membreEntity.typeMembre) : membreEntity.typeMembre != null) return false;
+        //if (typeMembre != null ? !typeMembre.equals(membreEntity.typeMembre) : membreEntity.typeMembre != null) return false;
         if (habitant != null ? !habitant.equals(membreEntity.habitant) : membreEntity.habitant != null) return false;
         if (raisonSociale != null ? !raisonSociale.equals(membreEntity.raisonSociale) : membreEntity.raisonSociale != null)
             return false;
@@ -161,7 +163,7 @@ public class MembreEntity {
         result = 31 * result + (statut != null ? statut.hashCode() : 0);
         result = 31 * result + soldeHeure;
         result = 31 * result + soldeEcu;
-        result = 31 * result + (typeMembre != null ? typeMembre.hashCode() : 0);
+        //result = 31 * result + (typeMembre != null ? typeMembre.hashCode() : 0);
         result = 31 * result + (habitant != null ? habitant.hashCode() : 0);
         result = 31 * result + (raisonSociale != null ? raisonSociale.hashCode() : 0);
         result = 31 * result + clientCompteEcu;

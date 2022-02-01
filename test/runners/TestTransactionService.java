@@ -1,10 +1,13 @@
 package runners;
 
+import entities.MembreEntity;
 import entities.TransactionEntity;
 import org.junit.jupiter.api.Test;
+import services.MembreServiceImpl;
 import services.TransactionServiceImpl;
 
 import java.sql.Date;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -66,4 +69,13 @@ public class TestTransactionService {
         TransactionServiceImpl.getInstance().delete(transaction);
     }
 
+    @Test
+    public void testGetByBeneficiare() {
+        List<TransactionEntity> transactionEntities = TransactionServiceImpl.getInstance().getTransactionByBeneficiaire("Phyllis", "Gonzales");
+        MembreEntity membreEntity = MembreServiceImpl.getInstance().getByFirstnameAndLastname("Phyllis", "Gonzales");
+
+        for(TransactionEntity transactionEntity : transactionEntities) {
+            assertEquals(transactionEntity.getIdMembreBeneficiaire(), membreEntity.getIdMembre());
+        }
+    }
 }
