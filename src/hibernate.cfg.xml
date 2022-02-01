@@ -11,8 +11,14 @@
 
         <mapping class="entities.CategorieEntity"/>
         <mapping class="entities.CompetenceEntity"/>
+        <mapping class="entities.CotisationsEntity"/>
         <mapping class="entities.MembreEntity"/>
+        <mapping class="entities.PropositionEntity"/>
         <mapping class="entities.TalentEntity"/>
+        <mapping class="entities.TarifEntity"/>
+        <mapping class="entities.TransactionEntity"/>
+
+
         <mapping class="entities.CascadeRefEntity"/>
         <mapping class="entities.CascadeFkEntity"/>
     </session-factory>

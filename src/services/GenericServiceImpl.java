@@ -9,14 +9,14 @@ public class GenericServiceImpl<T> implements CRUD<T>{
     public static GenericServiceImpl instance;
     private EntitiesEnum entityEnum;
 
-    public static GenericServiceImpl getInstance(EntitiesEnum entityEnum) {
+    protected static GenericServiceImpl getInstance(EntitiesEnum entityEnum) {
         getInstance();
         instance.entityEnum = entityEnum;
 
         return instance;
     }
 
-    public static GenericServiceImpl getInstance() {
+    protected static GenericServiceImpl getInstance() {
         if(instance == null) {
             instance = new GenericServiceImpl();
         }
